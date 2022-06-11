@@ -1,18 +1,18 @@
 import 'package:admin_panel/helpers/responsive.dart';
 import 'package:admin_panel/widgets/large_screen.dart';
 import 'package:admin_panel/widgets/small_screen.dart';
+import 'package:admin_panel/widgets/top_nav.dart';
 import 'package:flutter/material.dart';
 
 class SiteLayout extends StatelessWidget {
-  const SiteLayout({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-      ),
+      key: scaffoldKey,
+      appBar: topNavigationBar(context, scaffoldKey),
+      drawer: const Drawer(),
       body: const ResponsiveWidget(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),
