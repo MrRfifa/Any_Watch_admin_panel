@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: light,
       leading: !ResponsiveWidget.isSmallScreen(context)
           ? Row(
               children: [
