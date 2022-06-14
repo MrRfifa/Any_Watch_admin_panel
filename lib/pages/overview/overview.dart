@@ -1,5 +1,6 @@
 import 'package:admin_panel/constants/controllers.dart';
 import 'package:admin_panel/helpers/responsive.dart';
+import 'package:admin_panel/pages/overview/widgets/new_shows.dart';
 import 'package:admin_panel/pages/overview/widgets/overview_cards_medium.dart';
 import 'package:admin_panel/pages/overview/widgets/overview_cards_small.dart';
 import 'package:admin_panel/pages/overview/widgets/revenue_section_large.dart';
@@ -48,6 +49,7 @@ class OverViewPage extends StatelessWidget {
                 const RevenueSectionLarge()
               else
                 const RevenueSectionSmall(),
+              const Shows()
             ],
           ),
         ),

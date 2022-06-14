@@ -3,6 +3,9 @@ import 'package:admin_panel/helpers/responsive.dart';
 import 'package:admin_panel/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/controllers.dart';
+import '../pages/shows/shows.dart';
+
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(
       backgroundColor: Colors.transparent,
