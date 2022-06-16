@@ -1,11 +1,30 @@
+import 'package:admin_panel/model/message.dart';
+import 'package:admin_panel/model/product.dart';
 import 'package:admin_panel/pages/overview/widgets/info_cards.dart';
+import 'package:admin_panel/provider/message_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+late MessageProvider mp;
+
+Widget _buildMessagesPart() {
+  int messageNumber = mp.getMessagesListLength;
+  List<MessageModel> list = mp.getMessageList;
+  return InfoCard(
+    title: "Number of messages",
+    value: "$messageNumber",
+    topColor: Colors.lightGreen,
+    onTap: () {},
+  );
+}
 
 class OverViewCardsLargeScreen extends StatelessWidget {
-  const OverViewCardsLargeScreen({Key? key}) : super(key: key);
+  OverViewCardsLargeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    mp = Provider.of<MessageProvider>(context);
+    mp.getMessageData();
     double _width = MediaQuery.of(context).size.width;
     return Row(
       children: [
@@ -18,18 +37,13 @@ class OverViewCardsLargeScreen extends StatelessWidget {
         SizedBox(
           width: _width / 64,
         ),
-        InfoCard(
-          title: "Number of messages",
-          value: "5",
-          topColor: Colors.lightGreen,
-          onTap: () {},
-        ),
+        _buildMessagesPart(),
         SizedBox(
           width: _width / 64,
         ),
         InfoCard(
-          title: "Cancelled orders",
-          value: "5",
+          title: "Number of Shows",
+          value: "66",
           topColor: Colors.red,
           onTap: () {},
         ),

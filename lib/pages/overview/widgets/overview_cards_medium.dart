@@ -34,8 +34,8 @@ class OverviewCardsMediumScreen extends StatelessWidget {
         Row(
           children: [
             InfoCard(
-              title: "Cancelled orders",
-              value: "5",
+              title: "Number of Shows",
+              value: "66",
               topColor: Colors.red,
               onTap: () {},
             ),

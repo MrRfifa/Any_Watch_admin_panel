@@ -27,8 +27,8 @@ class OverviewCardsSmallScreen extends StatelessWidget {
             height: _width / 64,
           ),
           InfoCardSmall(
-            title: "Cancelled orders",
-            value: "5",
+            title: "Number of Shows",
+            value: "66",
             onTap: () {},
           ),
           SizedBox(

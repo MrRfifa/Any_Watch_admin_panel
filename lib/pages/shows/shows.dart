@@ -16,7 +16,7 @@ class ShowsPage extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             CustomText(
               text: "Featured",
               size: 30,
@@ -36,57 +36,88 @@ class ShowsPage extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildFeatureProduct() {
     return Column(
       children: [
-        Obx(
-          () => Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                  top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6,
-                ),
-                child: Row(
-                  children: [
-                    CustomText(
-                      text: menuController.activeItem.value,
-                      size: 24,
-                      weight: FontWeight.bold,
-                    ),
-                    const SizedBox(
-                      width: 800,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        SizedBox(
-          height: 50,
-        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            _buildFeature(),
-            SizedBox(
-              width: 100,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
-                color: dark.withOpacity(.7),
-                size: 50,
-              ),
-            ),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            CustomText(
+              text: "Featured Products",
+              size: 30,
+              weight: FontWeight.bold,
+            )
           ],
         ),
-        _buildFeature(),
+        Row(
+          children: [
+            ShowCard(
+                showType: "Anime", showName: "Ousama Ranking", image: ousama),
+            ShowCard(
+                showType: "Anime", showName: "Ousama Ranking", image: ousama),
+          ],
+        )
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        Column(
+          children: [
+            Obx(
+              () => Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6,
+                    ),
+                    child: Row(
+                      children: [
+                        CustomText(
+                          text: menuController.activeItem.value,
+                          size: 24,
+                          weight: FontWeight.bold,
+                        ),
+                        const SizedBox(
+                          width: 800,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _buildFeature(),
+                const SizedBox(
+                  width: 100,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add,
+                    color: dark.withOpacity(.7),
+                    size: 50,
+                  ),
+                ),
+              ],
+            ),
+            _buildFeatureProduct(),
+            _buildFeatureProduct(),
+            _buildFeatureProduct(),
+          ],
+        )
       ],
     );
   }
